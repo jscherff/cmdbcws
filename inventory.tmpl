@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{{.Title}}</title>
+    <link href="/css/inventory.css" type="text/css" rel="stylesheet">
+  </head>
+  <body>
+    <table class="usb_device">
+      <caption>{{.Title}}</caption>
+      <tr>
+        <th>Vendor ID</th>
+        <th>Product ID</th>
+        <th>Vendor Name</th>
+        <th>Product Name</th>
+        <th>Product Version</th>
+        <th>Firmware Version</th>
+        <th>Serial Number</th>
+        <th>USB Port</th>
+        <th>USB Bus</th>
+        <th>Bus Address</th>
+      </tr>
+      {{range .Devices}}
+      <tr>
+        <td>{{.vendor_id}}</td>
+        <td>{{.product_id}}</td>
+        <td>{{.vendor_name}}</td>
+        <td>{{.product_name}}</td>
+        <td>{{.product_ver}}</td>
+        <td>{{.firmware_ver}}</td>
+        <td>{{.serial_number}}</td>
+        <td>{{.port_number}}</td>
+        <td>{{.bus_number}}</td>
+        <td>{{.bus_address}}</td>
+      </tr>
+      {{end}}
+    </table>
+  </body>
+</html>

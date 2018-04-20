@@ -1,0 +1,36 @@
+body {
+	font-family: Verdana, sans-serif;
+}
+
+caption {
+	font-size: 150%;
+	font-weight: bold;
+	padding: 15px;
+}
+
+table {
+	border-collapse: collapse;
+	font-size: 90%;
+}
+
+table, th, td {
+	border: 1px solid black;
+}
+
+th, td {
+	padding: 10px;
+}
+
+th {
+	color: white;
+	background-color: black;
+}
+
+tr:hover {
+	background-color: PaleGreen;
+}
+
+td {
+	text-align: center;
+	vertical-align: center;
+}

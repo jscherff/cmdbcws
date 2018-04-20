@@ -1,0 +1,29 @@
+{
+	"Server": {
+		"Addr": "localhost:8080",
+		"ReadTimeout": 0,
+		"ReadHeaderTimeout": 0,
+		"WriteTimeout": 0,
+		"IdleTimeout": 0
+	},
+
+	"Include": {
+
+		"VendorID": {
+			"0801": true
+		},
+
+		"ProductID": {
+			"0acd": {
+				"2010": true,
+				"2030": true
+			}
+		},
+
+		"Default": true
+	},
+
+	"TemplateFiles": [
+			"inventory.tmpl"
+	]
+}
