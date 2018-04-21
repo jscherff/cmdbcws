@@ -1,6 +1,6 @@
 {
 	"Server": {
-		"Addr": "localhost:8080",
+		"Addr": "localhost:8081",
 		"ReadTimeout": 0,
 		"ReadHeaderTimeout": 0,
 		"WriteTimeout": 0,
@@ -23,7 +23,12 @@
 		"Default": true
 	},
 
-	"TemplateFiles": [
-			"inventory.tmpl"
+	"Templates": [
+		"templates/inventory.tmpl"
+	],
+
+	"Resources": [
+		"resources"
 	]
+
 }

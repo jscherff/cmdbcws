@@ -15,6 +15,7 @@
 package main
 
 import (
+	`fmt`
 	`net/http`
 	`log`
 	`html/template`
@@ -31,7 +32,8 @@ type Config struct {
 	Server *http.Server
 	Include *Include
 	Template *template.Template
-	TemplateFiles []string
+	Templates []string
+	Resources []string
 }
 
 type Include struct {
@@ -56,13 +58,19 @@ func init() {
 		conf.Hostname = hn
 	}
 
-	for index, file := range conf.TemplateFiles {
-		conf.TemplateFiles[index] = filepath.Join(appDir, file)
+	for index, file := range conf.Templates {
+		conf.Templates[index] = filepath.Join(appDir, file)
 	}
 
-	if tmpl, err := template.ParseFiles(conf.TemplateFiles...); err != nil {
+	if tmpl, err := template.ParseFiles(conf.Templates...); err != nil {
 		log.Fatal(err)
 	} else {
 		conf.Template = tmpl
+	}
+
+	for _, dir := range conf.Resources {
+		fs := http.FileServer(http.Dir(dir))
+		path := fmt.Sprintf(`/%s/`, dir)
+		http.Handle(path, http.StripPrefix(path, fs))
 	}
 }

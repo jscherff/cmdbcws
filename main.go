@@ -21,8 +21,6 @@ import (
 
 func main() {
 
-	fs := http.FileServer(http.Dir(`css`))
-	http.Handle(`/css/`, http.StripPrefix(`/css/`, fs))
 	http.HandleFunc(`/`, InventoryHandler)
 	log.Fatal(conf.Server.ListenAndServe())
 }
